@@ -1,16 +1,17 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useImperativeHandle, forwardRef } from "react";
 import music from "../assets/music/romantica.mp3";
 
-export default function MusicPlayer() {
+
+const MusicPlayer = forwardRef((props, ref) => {
 
   const audioRef = useRef(null);
 
   const [playing, setPlaying] = useState(false);
 
 
-  useEffect(() => {
+  useImperativeHandle(ref, () => ({
 
-    const startMusic = async () => {
+    startMusic: async () => {
 
       try {
 
@@ -18,19 +19,15 @@ export default function MusicPlayer() {
 
         setPlaying(true);
 
-      } catch (error) {
+      } catch(error){
 
-        // Navegador bloqueou autoplay
-        setPlaying(false);
+        console.log("Erro ao iniciar música:", error);
 
       }
 
-    };
+    }
 
-
-    startMusic();
-
-  }, []);
+  }));
 
 
 
@@ -58,14 +55,15 @@ export default function MusicPlayer() {
 
     <>
 
+
       <audio
         ref={audioRef}
         loop
       >
 
         <source 
-          src={music} 
-          type="audio/mp3" 
+          src={music}
+          type="audio/mp3"
         />
 
       </audio>
@@ -114,4 +112,8 @@ export default function MusicPlayer() {
     </>
 
   );
-}
+
+});
+
+
+export default MusicPlayer;

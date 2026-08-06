@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -17,6 +17,23 @@ function App() {
 
   const [started, setStarted] = useState(false);
 
+  const musicRef = useRef();
+
+
+
+  function handleStart(){
+
+    setStarted(true);
+
+    if(musicRef.current){
+
+      musicRef.current.startMusic();
+
+    }
+
+  }
+
+
 
   return (
 
@@ -26,7 +43,7 @@ function App() {
       {!started && (
 
         <WelcomeScreen 
-          onStart={() => setStarted(true)}
+          onStart={handleStart}
         />
 
       )}
@@ -34,11 +51,13 @@ function App() {
 
 
       <MusicPlayer 
-        start={started}
+        ref={musicRef}
       />
 
 
+
       <Navbar />
+
 
 
       <main>
@@ -58,6 +77,7 @@ function App() {
         <FinalMoment />
 
       </main>
+
 
 
       <Footer />

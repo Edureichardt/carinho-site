@@ -1,0 +1,24 @@
+@import "tailwindcss";
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+margin:0;
+
+background:#fff1f2;
+
+overflow-x:hidden;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+*{
+
+box-sizing:border-box;
+
+}

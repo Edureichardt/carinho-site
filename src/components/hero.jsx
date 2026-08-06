@@ -105,7 +105,7 @@ export default function Hero() {
         text-gray-800
         "
         >
-          Bom dia,Flor do dia ☀️
+          Bom diaa,Flor do dia ☀️
         </h1>
 
 

@@ -7,6 +7,7 @@ import Qualities from "./components/Qualities";
 import FunQuestions from "./components/FunQuestions";
 import Timeline from "./components/Timeline";
 import Letter from "./components/Letter";
+import MusicMessage from "./components/MusicMessage";
 import FinalMoment from "./components/FinalMoment";
 import Footer from "./components/Footer";
 import MusicPlayer from "./components/MusicPlayer";
@@ -20,19 +21,17 @@ function App() {
   const musicRef = useRef();
 
 
-
-  function handleStart(){
+  function handleStart() {
 
     setStarted(true);
 
-    if(musicRef.current){
+    if (musicRef.current) {
 
       musicRef.current.startMusic();
 
     }
 
   }
-
 
 
   return (
@@ -42,22 +41,19 @@ function App() {
 
       {!started && (
 
-        <WelcomeScreen 
+        <WelcomeScreen
           onStart={handleStart}
         />
 
       )}
 
 
-
-      <MusicPlayer 
+      <MusicPlayer
         ref={musicRef}
       />
 
 
-
       <Navbar />
-
 
 
       <main>
@@ -74,10 +70,11 @@ function App() {
 
         <Letter />
 
+        <MusicMessage />
+
         <FinalMoment />
 
       </main>
-
 
 
       <Footer />
@@ -91,3 +88,4 @@ function App() {
 
 
 export default App;
+

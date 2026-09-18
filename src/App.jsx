@@ -19,6 +19,7 @@ import InteractiveCat3D from "./components/InteractiveCat3D";
 import AutumnLilyLayer from "./components/AutumnLilyLayer";
 import LilyMoment from "./components/LilyMoment";
 import OpenWhen from "./components/OpenWhen";
+import Gallery from "./components/Gallery";
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -46,6 +47,7 @@ function App() {
         <LilyMoment />
         <CatSurprise />
         <Timeline />
+        <Gallery />
         <FunQuestions />
         <Letter />
         <OpenWhen />

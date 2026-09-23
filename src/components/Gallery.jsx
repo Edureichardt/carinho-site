@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Heart, Image as ImageIcon, X } from "lucide-react";
+import { unlockSecret } from "../secretSystem";
 
 import foto1 from "../assets/fotos/nos-01.jpeg";
 import foto2 from "../assets/fotos/nos-02.jpeg";
@@ -73,7 +74,8 @@ export default function Gallery() {
                 className="group mb-3 w-full break-inside-avoid rounded-[1.35rem] bg-white p-2 text-left shadow-[0_10px_35px_rgba(30,64,175,0.09)] transition duration-300 hover:-translate-y-1 hover:rotate-[0.4deg] sm:mb-5 sm:p-3"
                 aria-label={`Abrir foto ${index + 1}`}
               >
-                <div className="overflow-hidden rounded-[1rem] bg-blue-50">
+                <div className="relative overflow-hidden rounded-[1rem] bg-blue-50">
+                  {index === 2 && <span onClick={(e) => { e.stopPropagation(); unlockSecret("gallery-heart"); }} className="absolute bottom-2 right-2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-white/35 text-xs text-white/75 backdrop-blur transition hover:bg-white/70 hover:text-blue-700" title="♡">♡</span>}
                   <img src={photo.src} alt={photo.alt || photo.caption || `Memória ${index + 1}`} className="h-auto w-full object-cover transition duration-500 group-hover:scale-[1.035]" />
                 </div>
                 {photo.caption && <p className="px-2 pb-2 pt-3 text-center text-sm font-medium text-slate-700">{photo.caption}</p>}

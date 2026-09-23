@@ -297,3 +297,49 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .cat3d-secret strong { font-size: 13px; color:#bfdbfe; margin-bottom:6px; }
 .cat3d-secret span { font-size: 12px; line-height:1.6; color:#dbeafe; }
 @media(max-width:640px){.cat3d-secret{right:4px;bottom:165px;width:220px}}
+
+
+/* ===== Mobile-first polish — 23.09.2026 ===== */
+html { scroll-padding-top: 72px; }
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+  main > section { scroll-margin-top: 68px; }
+
+  /* Menos elementos flutuantes competindo pela tela */
+  .cat3d-wrap {
+    right: -10px;
+    bottom: 48px;
+    transform: scale(.62) translateY(var(--cat-scroll-bob, 0));
+    transform-origin: bottom right;
+  }
+  .cat3d-bubble {
+    width: 142px;
+    right: 24px;
+    top: 3px;
+    font-size: 10px;
+    padding: 8px 9px;
+  }
+  .cat3d-secret { right: 14px; bottom: 142px; width: 205px; }
+
+  /* Botões fixos ficam menores no celular e deixam o conteúdo respirar */
+  button[aria-label="Ver segredos encontrados"] {
+    left: 10px !important;
+    bottom: 10px !important;
+    padding: 10px 12px !important;
+  }
+  button[aria-label="Tocar música"],
+  button[aria-label="Pausar música"] {
+    right: 10px !important;
+    bottom: 10px !important;
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  /* Leitura confortável */
+  p { overflow-wrap: anywhere; }
+  button, a { touch-action: manipulation; }
+}
+
+@media (max-width: 380px) {
+  .cat3d-wrap { transform: scale(.56) translateY(var(--cat-scroll-bob, 0)); }
+}

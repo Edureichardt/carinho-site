@@ -20,6 +20,17 @@ import AutumnLilyLayer from "./components/AutumnLilyLayer";
 import LilyMoment from "./components/LilyMoment";
 import OpenWhen from "./components/OpenWhen";
 import Gallery from "./components/Gallery";
+import TogetherClock from "./components/TogetherClock";
+import DailySecret from "./components/DailySecret";
+import SecretProgress from "./components/SecretProgress";
+import GoldenLeafSecret from "./components/GoldenLeafSecret";
+import NightSecret from "./components/NightSecret";
+import FutureLetters from "./components/FutureLetters";
+import RandomReasons from "./components/RandomReasons";
+import OurChapters from "./components/OurChapters";
+import OurSoundtrack from "./components/OurSoundtrack";
+import CatMissions from "./components/CatMissions";
+import TimeAtmosphere from "./components/TimeAtmosphere";
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -36,21 +47,32 @@ function App() {
       <MusicPlayer ref={musicRef} />
       {started && <AutumnLilyLayer />}
       {started && <InteractiveCat3D />}
+      {started && <SecretProgress />}
+      {started && <GoldenLeafSecret />}
+      {started && <NightSecret />}
+      {started && <TimeAtmosphere />}
       <Navbar />
 
       <main>
         <Hero />
-        <Story />
-        <LilyDivider />
-        <Qualities />
-        <EightReasons />
+        <TogetherClock />
         <LilyMoment />
+        <Story />
+        <Gallery />
+        <LilyDivider />
+        <OurChapters />
+        <EightReasons />
+        <Qualities />
+        <RandomReasons />
+        <CatMissions />
         <CatSurprise />
         <Timeline />
-        <Gallery />
         <FunQuestions />
         <Letter />
         <OpenWhen />
+        <DailySecret />
+        <FutureLetters />
+        <OurSoundtrack />
         <MusicMessage />
         <FinalMoment />
       </main>

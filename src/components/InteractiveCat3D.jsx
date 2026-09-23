@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { unlockSecret } from "../secretSystem";
 
 export default function InteractiveCat3D() {
   const [look, setLook] = useState({ x: 0, y: 0 });
@@ -59,6 +60,7 @@ export default function InteractiveCat3D() {
       const next = count + 1;
       if (next === 8) {
         setSecret(true);
+        unlockSecret("cat-8");
         window.setTimeout(() => setSecret(false), 6500);
       }
       return next > 8 ? 1 : next;

@@ -14,7 +14,7 @@ const fragments=[
 ];
 const memories=[[355,430,"📷"],[850,390,"📷"],[1340,470,"📷"],[1260,925,"📷"],[470,720,"📷"],[1870,360,"📷"],[1830,1190,"📷"],[1030,1370,"📷"]];
 const spiders=[[500,320,280,740],[1150,560,1010,1390],[700,850,560,900],[1430,690,1290,1600],[1850,420,1700,2050],[1750,1050,1580,2040],[1100,1280,930,1330],[2320,430,2180,2550],[2390,1420,2200,2580]];
-const dogs=[[2250,900],[520,1570]];
+const dogs=[[720,1160],[1760,760],[2260,1280]];
 const trees=Array.from({length:52},(_,i)=>[80+(i*233)%2040,100+(i*157)%1350]);
 const CAT_NPCS=[
  {x:390,y:340,animal:"🐱",name:"Mimo",role:"Guardião curioso",q:"Qual é o número especial escondido por todo esse lugar?",answers:["8","oito"],reward:"Mimo parece satisfeito. Uma passagem perto do Lago dos Lírios se abriu. 🐱"},
@@ -87,8 +87,8 @@ export default function MiGardenGame(){
    if(z.stun>0){z.stun-=dt;z.alert=false;return}
    if(npcOpen||!started){z.alert=false;return}
    const d=Math.hypot(q.x-z.x,q.y-z.y);
-   z.alert=d<(210+found*12);
-   if(z.alert){const a=Math.atan2(q.y-z.y,q.x-z.x);z.x+=Math.cos(a)*(1.7+found*.08)*dt;z.y+=Math.sin(a)*(1.7+found*.08)*dt}
+   z.alert=d<(320+found*14);
+   if(z.alert){const a=Math.atan2(q.y-z.y,q.x-z.x);z.x+=Math.cos(a)*(2.05+found*.09)*dt;z.y+=Math.sin(a)*(2.05+found*.09)*dt}
    else {const dh=Math.hypot(z.homeX-z.x,z.homeY-z.y);if(dh>5){const a=Math.atan2(z.homeY-z.y,z.homeX-z.x);z.x+=Math.cos(a)*.72*dt;z.y+=Math.sin(a)*.72*dt}}
    if(inv.current<=0&&invisible.current<=0&&d<34){
     if(companion==="cat"&&life.current===1&&catSave.current){catSave.current=false;inv.current=110;z.x=z.homeX;z.y=z.homeY;setMsg("🐱 MIAU! O gatinho espantou a aranha. Ele decidiu que você ainda não podia perder. 🤍");}
@@ -101,7 +101,7 @@ export default function MiGardenGame(){
   });
  if(started&&!npcOpen&&now>eduVisit.current.next&&!eduVisit.current.active){eduVisit.current.active=true;eduVisit.current.last=now;eduVisit.current.next=now+55000+Math.random()*35000;setEduLove(true);setTimeout(()=>{setEduLove(false);eduVisit.current.active=false},2600)}
  if(companion==="edu"&&bow&&arrows>0&&!npcOpen&&!secretScene&&now-eduShot.current>6000){let best=null,bd=430;sn.current.forEach(z=>{let d=Math.hypot(cat.current.x-z.x,cat.current.y-z.y);if(z.stun<=0&&d<bd){best=z;bd=d}});if(best){let a=Math.atan2(best.y-cat.current.y,best.x-cat.current.x);arrowsFx.current.push({x:cat.current.x,y:cat.current.y-12,vx:Math.cos(a)*11,vy:Math.sin(a)*11,life:55,hit:false});setArrows(v=>Math.max(0,v-1));eduShot.current=now;setToast("EDU DISPAROU 🏹")}}
- if(started&&!npcOpen&&!secretScene){dogsRef.current.forEach(dg=>{let target=cat.current,dd=Math.hypot(target.x-dg.x,target.y-dg.y);if(dogTrap.current.cool>0)dogTrap.current.cool-=dt;if(companion==="cat"&&dd<330&&dogTrap.current.cool<=0){let a=Math.atan2(target.y-dg.y,target.x-dg.x);dg.x+=Math.cos(a)*.55*dt;dg.y+=Math.sin(a)*.55*dt;if(dd<32&&!dogTrap.current.active){dogTrap.current={active:true,dog:dg,cool:0};setToast("O CACHORRO PEGOU O GATINHO! 🐕🐱");setMsg("Você ficou mais lenta. Vá até eles e use SOLTAR GATINHO.")}}else{let dh=Math.hypot(dg.hx-dg.x,dg.hy-dg.y);if(dh>5){let a=Math.atan2(dg.hy-dg.y,dg.hx-dg.x);dg.x+=Math.cos(a)*.25*dt;dg.y+=Math.sin(a)*.25*dt}}})}
+ if(started&&!npcOpen&&!secretScene){dogsRef.current.forEach(dg=>{let target=cat.current,dd=Math.hypot(target.x-dg.x,target.y-dg.y);if(dogTrap.current.cool>0)dogTrap.current.cool-=dt;if(companion==="cat"&&dd<520&&dogTrap.current.cool<=0){let a=Math.atan2(target.y-dg.y,target.x-dg.x);dg.x+=Math.cos(a)*.72*dt;dg.y+=Math.sin(a)*.72*dt;if(dd<32&&!dogTrap.current.active){dogTrap.current={active:true,dog:dg,cool:0};setToast("O CACHORRO PEGOU O GATINHO! 🐕🐱");setMsg("Você ficou mais lenta. Vá até eles e use SOLTAR GATINHO.")}}else{let dh=Math.hypot(dg.hx-dg.x,dg.hy-dg.y);if(dh>5){let a=Math.atan2(dg.hy-dg.y,dg.hx-dg.x);dg.x+=Math.cos(a)*.25*dt;dg.y+=Math.sin(a)*.25*dt}}})}
  arrowsFx.current=arrowsFx.current.filter(a=>{a.x+=a.vx*dt;a.y+=a.vy*dt;a.life-=dt;sn.current.forEach(z=>{if(!a.hit&&Math.hypot(a.x-z.x,a.y-z.y)<28){a.hit=true;z.slow=300;z.hp=Math.max(1,(z.hp??3)-1);particles.current.push({x:z.x,y:z.y,life:28,e:"💫"})}});return a.life>0&&!a.hit});
  particles.current=particles.current.filter(pt=>{pt.life-=dt;pt.y-=.35*dt;return pt.life>0});
  if(shake.current>0)shake.current-=dt;
@@ -160,7 +160,7 @@ export default function MiGardenGame(){
  [[180,1080],[840,610],[1510,620],[1120,1260]].forEach(([cx,cy],i)=>{x.font="29px serif";x.fillText("🏮",cx,cy);if(Math.hypot(q.x-cx,q.y-cy)<45){checkpoint.current={x:cx,y:cy}}});
  fragments.forEach((a,i)=>{if(i>=found){x.globalAlpha=i===found?1:.18;x.font=i===found?"36px serif":"23px serif";x.fillText(i===found?a[2]:"✦",a[0],a[1]);x.globalAlpha=1}});
  memories.forEach((a,i)=>{if(i>=mem){x.globalAlpha=i===mem?.9:.15;x.font="27px serif";x.fillText(a[2],a[0],a[1]);x.globalAlpha=1}});
- dogsRef.current.forEach(dg=>{x.font="30px serif";x.fillText("🐕",dg.x,dg.y);x.fillStyle="rgba(15,23,42,.65)";x.font="9px sans-serif";x.fillText("segue o gatinho",dg.x-8,dg.y+15)});
+ dogsRef.current.forEach(dg=>{x.fillStyle="rgba(15,23,42,.18)";x.beginPath();x.ellipse(dg.x+10,dg.y+8,17,6,0,0,7);x.fill();x.font="38px serif";x.fillText("🐕",dg.x,dg.y);x.fillStyle="rgba(15,23,42,.65)";x.font="9px sans-serif";x.fillText("segue o gatinho",dg.x-8,dg.y+15)});
  // teias marcam territórios das aranhas
  sn.current.forEach(z=>{x.globalAlpha=.38;x.strokeStyle="#e2e8f0";x.lineWidth=1.5;for(let rr=12;rr<=42;rr+=10){x.beginPath();x.arc(z.homeX,z.homeY,rr,0,Math.PI*2);x.stroke()}for(let a=0;a<6;a++){x.beginPath();x.moveTo(z.homeX,z.homeY);x.lineTo(z.homeX+Math.cos(a*Math.PI/3)*45,z.homeY+Math.sin(a*Math.PI/3)*45);x.stroke()}x.globalAlpha=1;
    if(z.alert){x.fillStyle="rgba(220,38,38,.12)";x.beginPath();x.arc(z.x,z.y,88,0,Math.PI*2);x.fill();x.strokeStyle="rgba(248,113,113,.28)";x.beginPath();x.arc(z.x,z.y,115,0,Math.PI*2);x.stroke()}
@@ -209,7 +209,7 @@ export default function MiGardenGame(){
  if(dogTrap.current.active&&dogTrap.current.dog&&(Math.hypot(q.x-dogTrap.current.dog.x,q.y-dogTrap.current.dog.y)<95||Math.hypot(q.x-cat.current.x,q.y-cat.current.y)<95))n=true;
  if(Math.hypot(q.x-2125,q.y-1595)<120)n=true;
  if(done&&Math.hypot(q.x-930,q.y-205)<105)n=true;
- setNear(v=>v===n?v:n);raf.current=requestAnimationFrame(loop)}raf.current=requestAnimationFrame(loop);return()=>{cancelAnimationFrame(raf.current);removeEventListener("keydown",kd);removeEventListener("keyup",ku)}},[open,found,mem,done]);
+ setNear(v=>v===n?v:n);raf.current=requestAnimationFrame(loop)}raf.current=requestAnimationFrame(loop);return()=>{cancelAnimationFrame(raf.current);removeEventListener("keydown",kd);removeEventListener("keyup",ku)}},[open,found,mem,done,started,npcOpen,companion,items.shield,items.sword,bow,arrows,boots,maxLives,secretScene,furnitureBag,houseItems]);
  function shootArrow(){if(!bow||arrows<=0)return;let q=p.current,a=anim.current.dir==="left"?Math.PI:anim.current.dir==="up"?-Math.PI/2:anim.current.dir==="down"?Math.PI/2:0;arrowsFx.current.push({x:q.x,y:q.y-8,vx:Math.cos(a)*12,vy:Math.sin(a)*12,life:60,hit:false});setArrows(v=>Math.max(0,v-1));setToast("FLECHA DISPARADA 🏹")}
  function melee(){if(items.sword<=0)return;swordAnim.current=18;let q=p.current,best=null,bd=95;sn.current.forEach(z=>{let d=Math.hypot(q.x-z.x,q.y-z.y);if(d<bd&&z.stun<=0){best=z;bd=d}});if(!best){setToast("NENHUMA ARANHA AO ALCANCE ⚔️");return}best.hp=(best.hp??3)-Math.max(1,swordLevel);inv.current=22;if(best.hp<=0){best.hp=3;best.stun=360;best.alert=false;setToast("ARANHA ATORDOADA! 🕷️💫")}else setToast(`GOLPE! ${best.hp}/3 ❤️`)}
  function act(){let q=p.current;

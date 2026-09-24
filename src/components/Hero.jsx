@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="mt-7 text-5xl sm:text-6xl">🤍🍂</div>
 
         <h1 className="mt-5 text-5xl font-bold leading-tight text-slate-900 sm:text-7xl lg:text-8xl">
-          Oi, minha namorada.
+          Oi, minha Mulher.
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg leading-9 text-slate-600 sm:text-xl">

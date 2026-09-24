@@ -31,6 +31,7 @@ import OurChapters from "./components/OurChapters";
 import OurSoundtrack from "./components/OurSoundtrack";
 import CatMissions from "./components/CatMissions";
 import TimeAtmosphere from "./components/TimeAtmosphere";
+import MiGardenGame from "./components/MiGardenGame";
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -59,6 +60,7 @@ function App() {
         <LilyMoment />
         <Story />
         <Gallery />
+        <MiGardenGame />
         <LilyDivider />
         <OurChapters />
         <EightReasons />

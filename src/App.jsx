@@ -39,6 +39,7 @@ import OurSky from "./components/OurSky";
 import FuturePolaroids from "./components/FuturePolaroids";
 import MessengerCat from "./components/MessengerCat";
 import SiteSecretSpots from "./components/SiteSecretSpots";
+import ArcherSecret from "./components/ArcherSecret";
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
       {started && <SecretHuntV21 />}
       {started && <MessengerCat />}
       {started && <SiteSecretSpots />}
+      {started && <ArcherSecret />}
       <Navbar />
 
       <main>

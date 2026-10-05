@@ -1,0 +1,2 @@
+import HiddenHeart from "./HiddenHeart";
+export default function SiteSecretSpots(){return <div className="pointer-events-none fixed inset-0 z-[65]"><div className="pointer-events-auto"><HiddenHeart id="corner" className="left-[3%] top-[42%] opacity-40 hover:opacity-100"/><HiddenHeart id="autumn" className="right-[4%] top-[68%] opacity-30 hover:opacity-100"/><HiddenHeart id="lily" className="left-[48%] top-[18%] opacity-35 hover:opacity-100"/><HiddenHeart id="music" className="right-[18%] top-[86%] opacity-30 hover:opacity-100"/></div></div>}

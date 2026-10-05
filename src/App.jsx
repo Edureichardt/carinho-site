@@ -32,6 +32,14 @@ import OurSoundtrack from "./components/OurSoundtrack";
 import CatMissions from "./components/CatMissions";
 import TimeAtmosphere from "./components/TimeAtmosphere";
 import MiGardenGame from "./components/MiGardenGame";
+import WhileAway from "./components/WhileAway";
+import SecretHuntV21 from "./components/SecretHuntV21";
+import MiMailbox from "./components/MiMailbox";
+import OurSky from "./components/OurSky";
+import FuturePolaroids from "./components/FuturePolaroids";
+import MessengerCat from "./components/MessengerCat";
+import SiteSecretSpots from "./components/SiteSecretSpots";
+
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -52,6 +60,10 @@ function App() {
       {started && <GoldenLeafSecret />}
       {started && <NightSecret />}
       {started && <TimeAtmosphere />}
+      {started && <WhileAway />}
+      {started && <SecretHuntV21 />}
+      {started && <MessengerCat />}
+      {started && <SiteSecretSpots />}
       <Navbar />
 
       <main>
@@ -60,6 +72,9 @@ function App() {
         <LilyMoment />
         <Story />
         <Gallery />
+        <MiMailbox />
+        <OurSky />
+        <FuturePolaroids />
         <MiGardenGame />
         <LilyDivider />
         <OurChapters />

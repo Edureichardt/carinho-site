@@ -1,0 +1,4 @@
+Coloque aqui sua gravacao com o nome edu-para-mi.mp3.
+Caminho: public/audio/edu-para-mi.mp3
+Pode ser gravada no celular e convertida para MP3.
+O player so toca quando a Mi aperta o botao.

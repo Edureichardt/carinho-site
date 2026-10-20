@@ -40,10 +40,12 @@ import FuturePolaroids from "./components/FuturePolaroids";
 import MessengerCat from "./components/MessengerCat";
 import SiteSecretSpots from "./components/SiteSecretSpots";
 import ArcherSecret from "./components/ArcherSecret";
+import TwoMonthsSurprise from "./components/TwoMonthsSurprise";
 
 
 function App() {
   const [started, setStarted] = useState(false);
+  const [anniversaryEntered, setAnniversaryEntered] = useState(false);
   const musicRef = useRef();
 
   function handleStart() {
@@ -53,6 +55,7 @@ function App() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f6f9ff]">
+      {!anniversaryEntered && <TwoMonthsSurprise onEnter={() => setAnniversaryEntered(true)} />}
       {!started && <WelcomeScreen onStart={handleStart} />}
       <MusicPlayer ref={musicRef} />
       {started && <AutumnLilyLayer />}

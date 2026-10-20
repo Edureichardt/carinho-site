@@ -1,0 +1,8 @@
+V29 - AUDIO
+
+1. A trilha instrumental original ja esta inclusa em public/audio/.
+2. Clique em Ativar trilha sonora no canto inferior direito (navegadores bloqueiam autoplay sem clique).
+3. Antes do dia 22 toca o tema misterioso do relogio; apos liberar toca o tema romantico.
+4. Para sua voz, coloque um arquivo MP3 em public/audio/edu-para-mi.mp3 (exatamente esse nome).
+5. O player aparece mesmo sem MP3, mas so reproduz depois de voce adicionar o arquivo.
+6. Ao tocar a voz, a trilha de fundo pausa para nao atrapalhar.

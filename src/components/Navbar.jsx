@@ -17,6 +17,7 @@ export default function Navbar() {
           <a href="#nosso-tempo" className="rounded-full px-2 py-2 transition hover:bg-blue-50 hover:text-blue-700 sm:px-0">tempo ⏳</a>
           <a href="#lirio" className="rounded-full px-2 py-2 transition hover:bg-amber-50 hover:text-amber-700 sm:px-0">lírio 🌸</a>
           <a href="#galeria" className="rounded-full px-2 py-2 transition hover:bg-blue-50 hover:text-blue-700 sm:px-0">galeria 📷</a>
+          <a href="#nossa-viagem" className="hidden rounded-full px-2 py-2 transition hover:bg-blue-50 hover:text-blue-700 sm:block">viagem ✈️</a>
           <a href="#oito" className="hidden transition hover:text-blue-700 md:block">nosso 8 🤍</a>
         </div>
       </div>

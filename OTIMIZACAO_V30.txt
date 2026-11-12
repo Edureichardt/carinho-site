@@ -1,0 +1,8 @@
+V30 - Carregamento otimizado
+
+1. Site principal e jogo carregam apenas depois da surpresa, reduzindo o trabalho inicial.
+2. Trilhas WAV convertidas para MP3 leve.
+3. Relogio pre-carrega o audio; a reproducao depende de um clique por regra dos navegadores.
+4. Botao de musica inicia a reproducao diretamente no clique.
+
+Instalacao: substitua os arquivos do projeto (preserve .git), npm run dev e npm run build.
